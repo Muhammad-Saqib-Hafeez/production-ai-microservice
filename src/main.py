@@ -3,7 +3,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from src.core.config import settings
-from src.api import health
+from src.api import health, predict
 
 def get_application() -> FastAPI:
     """
@@ -27,6 +27,7 @@ def get_application() -> FastAPI:
 
     # Include routers
     app.include_router(health.router, prefix=settings.API_V1_STR)
+    app.include_router(predict.router, prefix=settings.API_V1_STR)
 
     return app
 
