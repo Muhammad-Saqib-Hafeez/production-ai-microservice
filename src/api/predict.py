@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 async def make_prediction(
     request: PredictionRequest, 
     ai_service: AIService = Depends(get_ai_service)
-):
+) -> PredictionResponse:
     """
     Accepts text, passes it to the AI service, and returns the prediction.
     """

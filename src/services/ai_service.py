@@ -1,5 +1,6 @@
 import asyncio
 import random
+from typing import Any
 from src.core.config import settings
 
 class AIService:
@@ -7,12 +8,12 @@ class AIService:
     A mock AI service simulating model inference.
     In a real app, you would load PyTorch/Transformers models here.
     """
-    def __init__(self):
+    def __init__(self) -> None:
         # Pretend we are loading a heavy model into memory
         self.model_version = settings.VERSION
         self.is_loaded = True
 
-    async def predict(self, text: str) -> dict:
+    async def predict(self, text: str) -> dict[str, Any]:
         """
         Simulate an asynchronous AI prediction.
         """
