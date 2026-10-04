@@ -54,3 +54,6 @@ coverage.xml
 # OS specific
 .DS_Store
 Thumbs.db
+
+# Developer Private Notes
+ARCHITECTURE_NOTES.md
