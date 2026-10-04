@@ -63,17 +63,17 @@ GitHub natively renders this diagram so you can visualize exactly how data moves
 
 ```mermaid
 graph TD
-    Client([Client Request]) -->|HTTP POST JSON| Router(FastAPI Router <br> <code>src/api</code>)
-    Router -->|1. Validate Input| Schema{Pydantic Schema <br> <code>src/schemas</code>}
+    Client(["Client Request"]) -->|"HTTP POST JSON"| Router("FastAPI Router (src/api)")
+    Router -->|"1. Validate Input"| Schema{"Pydantic Schema (src/schemas)"}
     
-    Schema -- Valid --> DI[Dependency Injection <br> <code>Depends()</code>]
-    Schema -. Invalid .-> Error([422 Unprocessable Entity])
+    Schema -- "Valid" --> DI["Dependency Injection (Depends)"]
+    Schema -. "Invalid" .-> Error(["422 Unprocessable Entity"])
     
-    DI -->|2. Inject Singleton| Service(AI Service <br> <code>src/services</code>)
-    Service -->|3. Run Inference| Model[(Heavy ML Model)]
-    Model -->|4. Return Result| Service
-    Service -->|5. Format Output| Response{Response Schema}
-    Response -->|HTTP 200 OK| Client
+    DI -->|"2. Inject Singleton"| Service("AI Service (src/services)")
+    Service -->|"3. Run Inference"| Model[("Heavy ML Model")]
+    Model -->|"4. Return Result"| Service
+    Service -->|"5. Format Output"| Response{"Response Schema"}
+    Response -->|"HTTP 200 OK"| Client
 ```
 
 ---
